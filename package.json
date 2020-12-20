@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "proxy": "node next-proxy.js",
     "build": "next build",
     "start": "next start",
     "export": "next export",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/react": "^6.2.9",
-    "chromatic": "^5.8.0"
+    "chromatic": "^5.8.0",
+    "http-proxy-middleware": "^1.0.6"
   }
 }
