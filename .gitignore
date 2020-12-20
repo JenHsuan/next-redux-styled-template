@@ -37,3 +37,8 @@ package-lock.json
 # storybook
 storybook-static
 build-storybook.log
+
+# Jest
+tests/__tests__/components/__snapshots__
+tests/__tests__/pages/__snapshots__
+tests/coverage
