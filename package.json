@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "proxy": "node next-proxy.js",
     "build": "next build",
     "start": "next start",
     "export": "next export"
@@ -21,5 +22,8 @@
     "redux-promise-middleware": "^6.1.2",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^1.0.6"
   }
 }
