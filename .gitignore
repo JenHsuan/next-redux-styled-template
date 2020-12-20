@@ -33,3 +33,9 @@ yarn-error.log*
 # vercel
 .vercel
 package-lock.json
+
+# Jest
+tests/__tests__/components/__snapshots__
+tests/__tests__/pages/__snapshots__
+tests/coverage
+coverage
