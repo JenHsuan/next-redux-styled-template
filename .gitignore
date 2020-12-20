@@ -33,3 +33,6 @@ yarn-error.log*
 # vercel
 .vercel
 package-lock.json
+
+# Jest
+tests/__tests__/__snapshots__
