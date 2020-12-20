@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import ReduxTester from '@/components/ReduxTester';
+import ReduxTester from '../components/ReduxTester';
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <ReduxTester/> 
+      <ReduxTester/>
     </div>
   )
 }
