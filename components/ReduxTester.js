@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 import {
     useSelector,
@@ -6,11 +6,13 @@ import {
 } from "react-redux";
 
 import {
-    getData
+    getMockedUsers,
+    getMockedData
 } from "./actions/action";
 
 import {
-    selectData 
+    selectMockedUsers,
+    selectMockedData
 } from "./states/states";
 
 import {
@@ -19,14 +21,16 @@ import {
 
 const ReduxTester = () => {
     const dispatch = useDispatch();
-    const data = useSelector(selectData);
+    const mockedData = useSelector(selectMockedData);
+    const mockedUsers = useSelector(selectMockedUsers);
     useEffect(() => {
-        dispatch(getData());
+        dispatch(getMockedData());
+        dispatch(getMockedUsers());
     },[]);
 
     return (
         <TemplateStyle variant='main'>
-            {data}
+            {mockedData}
         </TemplateStyle>
     )
 }
