@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "test": "node tests/commands/preRun.js && jest --config=tests/jest.config.js && node tests/commands/postRun.js",
+    "test": "node tests/commands/preRun.js && jest --config=tests/jest.config.js || node tests/commands/postRun.js",
     "build": "next build",
     "start": "next start"
   },
