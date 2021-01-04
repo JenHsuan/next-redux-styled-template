@@ -6,6 +6,7 @@
     "dev": "next dev",
     "proxy": "node next-proxy.js",
     "test": "node tests/commands/preRun.js && jest --config=tests/jest.config.js || node tests/commands/postRun.js",
+    "test-coverage": "node tests/commands/preRun.js && jest --config=tests/jest.config.js --coverage || node tests/commands/postRun.js",
     "build": "next build",
     "start": "next start"
   },
@@ -26,14 +27,16 @@
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-decorators": "^7.12.1",
     "@babel/plugin-syntax-jsx": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "babel-jest": "^26.6.3",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
+    "http-proxy-middleware": "^1.0.6",
     "jest": "^26.6.3",
-    "shelljs": "^0.8.4",
-    "http-proxy-middleware": "^1.0.6"
+    "redux-mock-store": "^1.5.4",
+    "shelljs": "^0.8.4"
   }
 }

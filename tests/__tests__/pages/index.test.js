@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import index from '../../pages/index';
+import index from '../../../pages/index';
 
 describe('MyComponent', () => {
   it('should render correctly in "debug" mode', () => {
