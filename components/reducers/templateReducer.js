@@ -1,7 +1,7 @@
 //Types
 import {
-    GET_MOCKED_USERS,
-    GET_MOCKED_DATA
+    GET_USERS,
+    GET_DATA
 } from '../types';
 
 //States
@@ -12,15 +12,15 @@ import {
 //Reducer
 export const templateReducer = (state = initialState, action) => {
     switch(action.type) {
-        case GET_MOCKED_USERS:
+        case GET_USERS:
              return {
                 ...state,
-                mockedUsers: action.payload.mockedUsers
+                users: action.payload.users
             };
-        case GET_MOCKED_DATA:
+        case GET_DATA:
              return {
                 ...state,
-                mockedData: action.payload.mockedData
+                data: action.payload.data
             };
         default:
             return state;

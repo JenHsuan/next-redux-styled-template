@@ -1,17 +1,17 @@
 //Types
 import {
-    GET_MOCKED_USERS,
-    GET_MOCKED_DATA
+    GET_USERS,
+    GET_DATA
 } from '../types';
 
 //Actions
 
 //The example for a synchronous action
-export const getMockedData = () => dispatch => {
+export const getData = () => dispatch => {
     try {
         dispatch({
-            type: GET_MOCKED_DATA,
-            payload: {mockedData: 'Test component'}
+            type: GET_DATA,
+            payload: {data: 'Test component'}
         });
     } catch (error) {
         console.log(error);
@@ -21,14 +21,14 @@ export const getMockedData = () => dispatch => {
 //The example for an asynchronous action
 //rem api: https://rem-rest-api.herokuapp.com/
 //fetch api: https://developers.google.com/web/updates/2015/03/introduction-to-fetch
-export const getMockedUsers = () => async dispatch => {
+export const getUsers = () => async dispatch => {
     try {
         let url = 'http://rem-rest-api.herokuapp.com/api/users';
         let res = await fetch(url)
         let data = await res.json()
         dispatch({
-            type: GET_MOCKED_USERS,
-            payload: {mockedUsers: data.data}
+            type: GET_USERS,
+            payload: {users: data.data}
         });
     } catch (error) {
         console.log(error);

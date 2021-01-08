@@ -1,2 +1,2 @@
-export const GET_MOCKED_DATA = 'GET_MOCKED_DATA';
-export const GET_MOCKED_USERS = 'GET_MOCKED_USERS';
+export const GET_DATA = 'GET_DATA';
+export const GET_USERS = 'GET_USERS';

@@ -1,9 +1,9 @@
 //Initial states
 export const initialState = {
-    mockedUsers:[],
-    mockedData: ''
+    users:[],
+    data: ''
 };
 
 //Selector functions
-export const selectMockedData = rootState => rootState.templateReducer.mockedData;
-export const selectMockedUsers = rootState => rootState.templateReducer.mockedUsers;
+export const selectData = rootState => rootState.templateReducer.data;
+export const selectUsers = rootState => rootState.templateReducer.users;

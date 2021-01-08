@@ -6,13 +6,13 @@ import {
 } from "react-redux";
 
 import {
-    getMockedUsers,
-    getMockedData
+    getUsers,
+    getData
 } from "./actions/action";
 
 import {
-    selectMockedUsers,
-    selectMockedData
+    selectUsers,
+    selectData
 } from "./states/states";
 
 import {
@@ -21,16 +21,16 @@ import {
 
 const ReduxTester = () => {
     const dispatch = useDispatch();
-    const mockedData = useSelector(selectMockedData);
-    const mockedUsers = useSelector(selectMockedUsers);
+    const data = useSelector(selectData);
     useEffect(() => {
-        dispatch(getMockedData());
-        dispatch(getMockedUsers());
+        dispatch(getData());
     },[]);
 
     return (
         <TemplateStyle variant='main'>
-            {mockedData}
+            <div data-testid="text-content">
+                {data}
+            </div>
         </TemplateStyle>
     )
 }
