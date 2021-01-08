@@ -9,9 +9,10 @@ module.exports = {
         "js",
         "jsx"
     ],
-    setupFiles: ["./setupTests.js"],
+    setupFiles: ["./tests/setupTests.js"],
     transform: {
-        "^.+\\.(js|jsx|mjs)$": "./jest-transformer.js"
+        "^.+\\.(js|jsx|mjs)$": "./tests/jest-transformer.js"
     },
-    verbose: true
+    verbose: true,
+    collectCoverage: true
 }

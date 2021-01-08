@@ -1,28 +1,28 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-import ReduxTester from '../../../components/ReduxTester';
+import React from "react";
+import { Provider } from "react-redux";
+import ReduxTester from "../../../components/ReduxTester";
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import thunk from 'redux-thunk';
+import rootReducer from '../../../components/reducers';
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 
-const mockStore = configureStore([]);
+function renderWithProviders(ui, initialState = {}) {
+  const middleware = [thunk];
+  const store = createStore(
+    rootReducer,
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
+  );
+  return render(<Provider store={store}>{ui}</Provider>);
+}
+
 
 describe('Component: ReduxTester', () => {
-    let store;
-    let component;
-    beforeEach(() => {
-      store = mockStore({
-        myState: 'sample text',
-      });
-  
-      component = shallow(
-          <Provider store={store}>
-            <ReduxTester />
-          </Provider>
-        );
-    });
-  
-    it('should render with given state from Redux store', () => {
-      expect(component).toMatchSnapshot();
-    });
-  
+  test('should render with given state from Redux store', () => {
+    let mockedData = 'Test component';
+    const { getByTestId } = renderWithProviders(<ReduxTester />)
+    expect(getByTestId("text-content")).toHaveTextContent(mockedData)
   });
+});
