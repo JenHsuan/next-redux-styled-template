@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "proxy": "node next-proxy.js",
+    "dev": "node tests/commands/postRun.js && next dev",
+    "proxy": "node tests/commands/postRun.js && node next-proxy.js",
     "test": "node tests/commands/preRun.js && jest --config=jest.config.js || node tests/commands/postRun.js",
-    "build": "next build",
-    "start": "next start"
+    "build": "node tests/commands/postRun.js && next build",
+    "start": "node tests/commands/postRun.js && next start"
   },
   "dependencies": {
     "@testing-library/react": "^11.2.2",
