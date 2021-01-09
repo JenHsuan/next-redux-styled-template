@@ -6,8 +6,8 @@ import {
 } from "react-redux";
 
 import {
-    getUsers,
-    getData
+    getUsersRequest,
+    getDataRequest
 } from "./actions/action";
 
 import {
@@ -23,7 +23,8 @@ const ReduxTester = () => {
     const dispatch = useDispatch();
     const data = useSelector(selectData);
     useEffect(() => {
-        dispatch(getData());
+        dispatch(getDataRequest());
+        dispatch(getUsersRequest());
     },[]);
 
     return (
