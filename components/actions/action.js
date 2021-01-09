@@ -1,36 +1,35 @@
 //Types
 import {
-    GET_USERS,
-    GET_DATA
+    GET_USERS_REQUEST,
+    GET_USERS_SUCCESS,
+    GET_DATA_REQUEST,
+    GET_DATA_SUCCESS
 } from '../types';
 
 //Actions
 
 //The example for a synchronous action
-export const getData = () => dispatch => {
-    try {
-        dispatch({
-            type: GET_DATA,
-            payload: {data: 'Test component'}
-        });
-    } catch (error) {
-        console.log(error);
+export const getDataRequest = () => ({
+    type: GET_DATA_REQUEST,
+});
+
+export const getDataSuccess = ({items}) => ({
+    type: GET_DATA_SUCCESS,
+    payload: {
+        items
     }
-};
+});
 
 //The example for an asynchronous action
 //rem api: https://rem-rest-api.herokuapp.com/
 //fetch api: https://developers.google.com/web/updates/2015/03/introduction-to-fetch
-export const getUsers = () => async dispatch => {
-    try {
-        let url = 'http://rem-rest-api.herokuapp.com/api/users';
-        let res = await fetch(url)
-        let data = await res.json()
-        dispatch({
-            type: GET_USERS,
-            payload: {users: data.data}
-        });
-    } catch (error) {
-        console.log(error);
+export const getUsersRequest = () => ({
+    type: GET_USERS_REQUEST
+});
+
+export const getUsersSuccess = ({items}) => ({
+    type: GET_USERS_SUCCESS,
+    payload: {
+        items
     }
-};
+});

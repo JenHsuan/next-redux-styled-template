@@ -1,2 +1,4 @@
-export const GET_DATA = 'GET_DATA';
-export const GET_USERS = 'GET_USERS';
+export const GET_DATA_REQUEST = 'GET_DATA_REQUEST';
+export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
+export const GET_USERS_REQUEST = 'GET_USERS_REQUEST';
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';

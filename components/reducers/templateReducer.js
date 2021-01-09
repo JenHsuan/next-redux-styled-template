@@ -1,7 +1,7 @@
 //Types
 import {
-    GET_USERS,
-    GET_DATA
+    GET_USERS_SUCCESS,
+    GET_DATA_SUCCESS
 } from '../types';
 
 //States
@@ -12,15 +12,15 @@ import {
 //Reducer
 export const templateReducer = (state = initialState, action) => {
     switch(action.type) {
-        case GET_USERS:
+        case GET_USERS_SUCCESS:
+            return {
+               ...state,
+               users: action.payload.items
+           };
+        case GET_DATA_SUCCESS:
              return {
                 ...state,
-                users: action.payload.users
-            };
-        case GET_DATA:
-             return {
-                ...state,
-                data: action.payload.data
+                data: action.payload.items
             };
         default:
             return state;
