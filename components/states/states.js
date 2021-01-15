@@ -1,7 +1,8 @@
 //Initial states
 export const initialState = {
     users:[],
-    data: ''
+    data: '',
+    isPending:true
 };
 
 //Selector functions
