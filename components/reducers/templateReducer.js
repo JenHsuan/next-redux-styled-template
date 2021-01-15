@@ -1,3 +1,5 @@
+import { HYDRATE } from 'next-redux-wrapper';
+
 //Types
 import {
     GET_DATA_PENDING,
@@ -14,6 +16,13 @@ import {
 //Reducer
 export const templateReducer = (state = initialState, action) => {
     switch(action.type) {
+        case HYDRATE:
+            // Attention! This will overwrite client state! Real apps should use proper reconciliation.
+            return {
+                ...state,
+                data: action.payload.templateReducer.data,
+                users: action.payload.templateReducer.users
+            }
         case GET_USERS_PENDING:
             return {
                 ...state,
@@ -30,7 +39,7 @@ export const templateReducer = (state = initialState, action) => {
                 ...state
             };
         case GET_DATA_FULFILLED:
-             return {
+            return {
                 ...state,
                 data: action.payload.data
             };
