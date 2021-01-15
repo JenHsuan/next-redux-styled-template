@@ -1,7 +1,9 @@
 //Types
 import {
-    GET_USERS,
-    GET_DATA
+    GET_DATA_PENDING,
+    GET_DATA_FULFILLED,
+    GET_USERS_PENDING,
+    GET_USERS_FULFILLED
 } from '../types';
 
 //States
@@ -12,12 +14,22 @@ import {
 //Reducer
 export const templateReducer = (state = initialState, action) => {
     switch(action.type) {
-        case GET_USERS:
+        case GET_USERS_PENDING:
+            return {
+                ...state,
+                isPending: true
+            }
+        case GET_USERS_FULFILLED:
              return {
                 ...state,
-                users: action.payload.users
+                users: action.payload.data,
+                isPending: false
             };
-        case GET_DATA:
+        case GET_DATA_PENDING:
+             return {
+                ...state
+            };
+        case GET_DATA_FULFILLED:
              return {
                 ...state,
                 data: action.payload.data

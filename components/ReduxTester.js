@@ -24,6 +24,7 @@ const ReduxTester = () => {
     const data = useSelector(selectData);
     useEffect(() => {
         dispatch(getData());
+        dispatch(getUsers());
     },[]);
 
     return (
