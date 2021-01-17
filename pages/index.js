@@ -20,8 +20,9 @@ export default function Home() {
 
 //const getStaticProps = wrapper.getStaticProps
 export const getServerSideProps = wrapper.getServerSideProps(
-  ({store, preview}) => {
+  async({store, preview}) => {
     store.dispatch(getData());
+    await store.dispatch(getUsers());
   }
 );
 
