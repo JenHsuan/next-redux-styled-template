@@ -1,12 +1,12 @@
 import React, { cloneElement } from 'react';
 import { shallow } from 'enzyme';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import promiseMiddleware from 'redux-promise-middleware';
 import configureStore from 'redux-mock-store';
 
 import ReduxTester from '../../../components/ReduxTester';
 
-const middlewares = [thunk];
+const middlewares = [promiseMiddleware];
 const mockStore = configureStore(middlewares);
 
 describe('Components snapshots', () => {

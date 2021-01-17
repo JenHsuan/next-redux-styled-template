@@ -1,5 +1,5 @@
 import React, { cloneElement } from 'react';
-import thunk from 'redux-thunk';
+import promiseMiddleware from 'redux-promise-middleware';
 import configureStore from 'redux-mock-store';
 
 //actions
@@ -10,8 +10,10 @@ import {
 
 //types
 import {
-  GET_USERS,
-  GET_DATA
+  GET_USERS_FULFILLED,
+  GET_USERS_PENDING,
+  GET_DATA_FULFILLED,
+  GET_DATA_PENDING
 } from '../../../components/types';
 
 //reducers
@@ -19,7 +21,7 @@ import { templateReducer } from '../../../components/reducers/templateReducer';
 
 global.fetch = require('node-fetch');
 
-const middlewares = [thunk];
+const middlewares = [promiseMiddleware];
 const mockStore = configureStore(middlewares);
 
 describe('Redux', () => {
@@ -29,7 +31,8 @@ describe('Redux', () => {
     beforeEach(() => {
       store = mockStore({
         mockUsers:[],
-        mockedData: ''
+        mockedData: '',
+        isPending: true
       });
 
       mockedData = 'Test component';
@@ -92,47 +95,73 @@ describe('Redux', () => {
         //initial states
         let initialData = {
             users:[],
-            data: ''
+            data: '',
+            isPending: true
         };
         expect(templateReducer(undefined, {})).toEqual(initialData);
 
         //getMockedData
+
+        //pending
         let data = {
-            users:[],
-            data: mockedData
+          users:[],
+          data: '',
+          isPending: true
         };
-        templateReducer(initialData, getData(res => {
-            expect(res).toEqual(data)
-        }))
+        expect(templateReducer(initialData, {
+          type: GET_DATA_PENDING,
+          payload: { data: '' }}
+          ))
+        .toEqual(data)
+
+        //fullfilled
+        data = {
+            users:[],
+            data: mockedData,
+            isPending: true
+        };
+        expect(templateReducer(initialData, {
+          type: GET_DATA_FULFILLED,
+          payload: { data: mockedData }}
+        ))
+        .toEqual(data)
 
         //getMockedUsers
+
+        //pending
+        data = {
+          users:[],
+          data: '',
+          isPending: true
+        };
+        expect(templateReducer(initialData, {
+          type: GET_USERS_PENDING,
+          payload: { data:[] }}
+          ))
+        .toEqual(data)
+
+        //fullfilled
         data = {
             users: mockedUsers,
-            data: ''
+            data: '',
+            isPending: false
         };
-        templateReducer(initialData, getUsers(res => {
-            expect(res).toEqual(data)
-        }))
 
+        expect(templateReducer(initialData, {
+          type: GET_USERS_FULFILLED,
+          payload: { data: mockedUsers }}
+        ))
+        .toEqual(data)
     });
 
     test('Test actions', async() => {
         //getMockedData
-        let data = {
-            type: GET_DATA,
-            payload: {data: mockedData}
-          };
-
-        getData()(res => expect(res).toEqual(data));
+        let res = await store.dispatch(getData());
+        expect(res.value.data).toEqual(mockedData);
 
         //getMockedUsers
-        let res = {
-            type: GET_USERS,
-            payload: { users:  mockedUsers}
-        };
-        return store.dispatch(getUsers()).then(() => {
-            expect(store.getActions()[0]).toEqual(res)
-        })
+        res = await store.dispatch(getUsers());
+        expect(res.value.data).toEqual(mockedUsers);
     });
 
   });
