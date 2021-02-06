@@ -10,6 +10,10 @@ import {
 } from '../states/states';
 
 //Reducer
+interface TemplateReducer {
+
+}
+
 export const templateReducer = (state = initialState, action) => {
     switch(action.type) {
         case GET_MOCKED_USERS:

@@ -9,7 +9,7 @@ export const selectMockedData = rootState => rootState.templateReducer.mockedDat
 export const selectMockedUsers = rootState => rootState.templateReducer.mockedUsers;
 
 // interfaces
-export interface initialStateInterface {
+export interface InitialState {
     mockedUsers: any[],
     mockedData: string
 }

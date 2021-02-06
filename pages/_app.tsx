@@ -1,4 +1,4 @@
-import store from "@/components/store/store";
+import store from "../components/store/store";
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import Theme from '../components/themes/Theme';
