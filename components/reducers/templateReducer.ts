@@ -7,10 +7,23 @@ import {
 //States
 import {
     initialState,
+    InitialState
 } from '../states/states';
 
 //Reducer
-export const templateReducer = (state = initialState, action) => {
+interface TemplateReducer {
+
+}
+
+import {
+    GetDataAction,
+    GetUsersAction
+} from '../actions/action';
+
+export const templateReducer = (
+    state: InitialState = initialState,
+    action: GetDataAction | GetUsersAction
+) => {
     switch(action.type) {
         case GET_USERS:
              return {

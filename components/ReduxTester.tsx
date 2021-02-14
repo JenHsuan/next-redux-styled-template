@@ -19,7 +19,11 @@ import {
     TemplateStyle,
 } from './styles/Style';
 
-const ReduxTester = () => {
+type ReduxTesterType = {
+    void
+}
+
+const ReduxTester: React.FC<ReduxTesterType> = () => {
     const dispatch = useDispatch();
     const data = useSelector(selectData);
     useEffect(() => {
