@@ -1,4 +1,22 @@
-export default {
+import { DefaultTheme } from "styled-components";
+
+declare module "styled-components" {
+    export interface DefaultTheme {
+      template: {
+          main: {
+              [key:string]: any
+          },
+          header: {
+              [key:string]: any
+          },
+          footer: {
+              [key:string]: any
+          }
+      }
+    }
+}
+
+export const Theme: DefaultTheme = {
     template: {
         main: {
             minHeight: '800px',
@@ -43,7 +61,6 @@ export default {
                     order: 0
                 }
             }
-
         },
         header: {
             display: 'block',

@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import store from "../store/store";
 import ProviderWrapper from '../store/ProviderWrapper';
 import ThemeProviderWrapper from '../themes/ThemeProviderWrapper';
-import Theme from '../themes/Theme';
+import { Theme }  from '../themes/Theme';
 
 import ReduxTester from '../ReduxTester';
 
