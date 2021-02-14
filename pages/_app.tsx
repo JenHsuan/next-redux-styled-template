@@ -1,18 +1,17 @@
 import store from "../components/store/store";
-import { Theme } from "../components/themes/Theme";
-import ProviderWrapper from "../components/wrappers/ProviderWrapper";
-import ThemeProviderWrapper from "../components/wrappers/ThemeProviderWrapper";
-import { AppProps } from "next/app";
+import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+import { Theme } from '../components/themes/Theme';
+import { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ProviderWrapper store={store}>
-      <ThemeProviderWrapper theme={Theme}>
+    <Provider store={store}>
+      <ThemeProvider theme={Theme}>
         <Component {...pageProps} />
-      </ThemeProviderWrapper>
-    </ProviderWrapper>
-  );
+      </ThemeProvider>
+    </Provider>
+  )
 }
 
-export default MyApp;
-
+export default MyApp
