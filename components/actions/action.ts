@@ -21,7 +21,7 @@ export interface GetDataAction {
 export interface GetUsersAction {
     type: typeof GET_USERS,
     payload: {
-        users: string
+        users: any[]
     }
 }
 
