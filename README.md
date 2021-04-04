@@ -17,3 +17,11 @@ npm install
 
 ```
 
+* Launch
+
+```
+
+npm run dev
+
+```
+
