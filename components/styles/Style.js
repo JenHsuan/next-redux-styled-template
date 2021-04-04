@@ -5,7 +5,9 @@ export const TemplateStyle = styled('div')(
     variant({
       scale: 'template',
       variants: {
-        main: {}
+        main: {},
+        header: {},
+        footer: {}
       },
     })
 );

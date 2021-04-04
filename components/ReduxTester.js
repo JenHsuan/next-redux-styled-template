@@ -27,11 +27,17 @@ const ReduxTester = () => {
     },[]);
 
     return (
-        <TemplateStyle variant='main'>
-            <div data-testid="text-content">
-                {data}
-            </div>
-        </TemplateStyle>
+        <>
+            <TemplateStyle variant='header'>header</TemplateStyle>
+            <TemplateStyle variant='main'>
+                <article data-testid="text-content">
+                    {data}
+                </article>
+                <nav>nav</nav>
+                <aside>aside</aside>
+            </TemplateStyle>
+            <TemplateStyle variant='footer'>footer</TemplateStyle>
+        </>
     )
 }
 
