@@ -1,15 +1,15 @@
-import store from "@/components/store/store";
-import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
+import store from "../components/store/store";
 import Theme from '../components/themes/Theme';
+import ProviderWrapper from '../components/wrappers/ProviderWrapper';
+import ThemeProviderWrapper from '../components/wrappers/ThemeProviderWrapper';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={Theme}>
+    <ProviderWrapper store={store}>
+      <ThemeProviderWrapper theme={Theme}>
         <Component {...pageProps} />
-      </ThemeProvider>
-    </Provider>
+      </ThemeProviderWrapper>
+    </ProviderWrapper>
   )
 }
 
