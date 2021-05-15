@@ -33,3 +33,7 @@ yarn-error.log*
 # vercel
 .vercel
 package-lock.json
+
+# storybook
+storybook-static
+build-storybook.log
